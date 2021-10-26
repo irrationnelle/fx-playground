@@ -17,6 +17,7 @@
     "fxjs": "^0.21.3"
   },
   "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
     "jest": "^27.3.1",
     "webpack": "^5.60.0",
     "webpack-cli": "^4.9.1",

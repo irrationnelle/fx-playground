@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
@@ -10,4 +11,5 @@ module.exports = {
   optimization: {
     usedExports: true,
   },
+  plugins: [new HtmlWebpackPlugin()],
 };
