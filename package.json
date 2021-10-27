@@ -6,6 +6,21 @@
     "build": "webpack",
     "test": "jest"
   },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "rootDir": "./src",
+    "transform": {
+      ".*": "../node_modules/babel-jest"
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!@fxdom)/",
+      "node_modules/(?!@fxjs)/"
+    ]
+  },
   "keywords": [
     "fxjs",
     "fxdom"
