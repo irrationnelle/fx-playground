@@ -4,6 +4,7 @@
   "description": "A project to learn fxjs and fxdom",
   "scripts": {
     "build": "webpack",
+    "dev": "webpack-dev-server",
     "test": "jest"
   },
   "jest": {
