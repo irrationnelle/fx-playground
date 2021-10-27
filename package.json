@@ -21,6 +21,7 @@
       "node_modules/(?!@fxjs)/"
     ]
   },
+  "sideEffects": false,
   "keywords": [
     "fxjs",
     "fxdom"

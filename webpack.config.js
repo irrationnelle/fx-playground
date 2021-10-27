@@ -3,6 +3,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 const path = require("path");
 
 module.exports = {
+  devtool: 'inline-source-map',
   entry: "./src/index.js",
   output: {
     filename: "bundle.js",
@@ -17,7 +18,9 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: [['@babel/preset-env', {
+              "modules": false
+            }]],
           }
         }
       }
