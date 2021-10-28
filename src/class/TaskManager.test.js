@@ -16,3 +16,22 @@ test("TaskManager 는 추가한 task 와 동일한 task 를 가진 목록을 반
   expect(latestTask.content).toMatch("Do test");
   expect(latestTask.status).toMatch("inProgress");
 });
+
+test("TaskManager 는 특정 status 를 가지고 있는 task 만을 가진 목록을 반환한다.", () => {
+  const taskManager = new TaskManager();
+
+  const pendingTask = new Task("Earn money", "pending");
+  const studyTask = new Task("Do study", "inProgress");
+  const guitarTask = new Task("Play the guitar", "inProgress");
+  const compltetedTask = new Task("Do test", "completed");
+
+  taskManager.add(pendingTask);
+  taskManager.add(studyTask);
+  taskManager.add(guitarTask);
+  taskManager.add(compltetedTask);
+
+  const inProgressTasks = taskManager.getTasks('inProgress');
+  for(const inProgressTask of inProgressTasks) {
+    expect(inProgressTask.status).toMatch('inProgress');
+  }
+})
