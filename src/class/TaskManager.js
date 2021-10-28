@@ -1,10 +1,14 @@
 class TaskManager {
-  constructor() {}
+  constructor() {
+    this.tasks = [];
+  }
 
-  add(task) {}
+  add(task) {
+    this.tasks = [...this.tasks, task];
+  }
 
   getTasks() {
-    return [1];
+    return this.tasks;
   }
 }
 
