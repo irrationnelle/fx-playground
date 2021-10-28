@@ -1,3 +1,5 @@
+import { filter } from "fxjs";
+
 class TaskManager {
   constructor() {
     this.tasks = [];
@@ -7,8 +9,12 @@ class TaskManager {
     this.tasks = [...this.tasks, task];
   }
 
-  getTasks() {
-    return this.tasks;
+  filterStatus(status, tasks) {
+    return filter((task) => task.status === status, tasks);
+  }
+
+  getTasks(status) {
+    return status ? this.filterStatus(status, this.tasks) : this.tasks;
   }
 }
 
