@@ -1,3 +1,6 @@
+import TaskManager from "./TaskManager";
+import Task from "./Task";
+
 test("TaskManager 로 task 를 추가한다.", () => {
   const taskManager = new TaskManager();
   const task = new Task("Do test", "inProgress");
