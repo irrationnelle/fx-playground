@@ -1,7 +1,22 @@
 import { $append, $el, $qs, $setCss } from "fxdom";
-import { go, pipe } from "fxjs";
+import { go, pipe, strMap } from "fxjs";
 
 const app = $qs("#root") || $el('<div id="root"></div>');
+
+const Tasks$ = {};
+Tasks$.tmpl = (tasks) => `
+  <div class="tasks">
+    ${strMap(
+      (task) => `
+      <div class="task">
+        <div class="content"><span>${task.content}</span></div>
+        <div class="status"><span>${task.status}</span></div>
+      </div>
+    `,
+      tasks
+    )}
+  </div>
+`;
 
 const showGreeting = pipe(
   $setCss({
@@ -15,4 +30,4 @@ const showGreeting = pipe(
 
 go(app, showGreeting);
 
-export default showGreeting;
+export { showGreeting, Tasks$ };
