@@ -1,5 +1,9 @@
+import { generateId } from "../helper/generateId";
+
 class Task {
   constructor(content, status) {
+    this.id = generateId();
+
     this.content = content;
 
     if (status !== 'pending' && status !== 'inProgress' && status !== 'completed') {
