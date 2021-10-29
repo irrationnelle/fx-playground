@@ -20,3 +20,8 @@ test("Task 는 pending, inProgress, completed 세가지 status 만을 가진다.
   const initializingOddTask = () => {new Task("Connect to HotS", "immune")};
   expect(initializingOddTask).toThrowError()
 });
+
+test("Task 는 자신의 id 를 가진다.", () => {
+  const task = new Task("Listen to the new album of Dream Theater", 'inProgress');
+  expect(task.id).toBeTruthy();
+})
