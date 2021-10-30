@@ -50,6 +50,6 @@ test("TaskManager 는 tasks 목록에 있는 task 를 삭제하고 최신화된 
 
   const tasks = taskManager.getTasks();
   for(const task of tasks) {
-    expect(tasks.content).not.toMatch('Do study');
+    expect(task.content).not.toMatch('Do study');
   }
 })
