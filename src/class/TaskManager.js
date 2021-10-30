@@ -16,6 +16,10 @@ class TaskManager {
   getTasks(status) {
     return status ? this.filterStatus(status, this.tasks) : this.tasks;
   }
+
+  removeTask(id) {
+    this.tasks = filter(task => task.id !== id, this.tasks)
+  }
 }
 
 export default TaskManager;
