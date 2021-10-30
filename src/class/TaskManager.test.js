@@ -36,7 +36,7 @@ test("TaskManager 는 특정 status 를 가지고 있는 task 만을 가진 목�
   }
 })
 
-test.skip("TaskManager 는 tasks 목록에 있는 task 를 삭제하고 최신화된 tasks 목록을 받아올 수 있다.", () => {
+test("TaskManager 는 tasks 목록에 있는 task 를 삭제하고 최신화된 tasks 목록을 받아올 수 있다.", () => {
   const taskManager = new TaskManager();
 
   const pendingTask = new Task("Earn money", "pending");
@@ -45,7 +45,7 @@ test.skip("TaskManager 는 tasks 목록에 있는 task 를 삭제하고 최신�
   taskManager.add(pendingTask);
   taskManager.add(studyTask);
 
-  const taskId = 'mockStudyTaskId';
+  const taskId = studyTask.id;
   taskManager.removeTask(taskId);
 
   const tasks = taskManager.getTasks();
