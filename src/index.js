@@ -1,4 +1,4 @@
-import { $append, $el, $qs, $setCss } from "fxdom";
+import { $append, $appendTo, $el, $find, $qs, $replaceWith, $setCss } from "fxdom";
 import { go, pipe, strMap } from "fxjs";
 
 const app = $qs("#root") || $el('<div id="root"></div>');
@@ -17,6 +17,14 @@ Tasks$.tmpl = (tasks) => `
     )}
   </div>
 `;
+
+export function render(target, data, template, baseElement) {
+    if ($find(`.${target}`, baseElement)) {
+        go(data, template, $el, (el) => $replaceWith(el, $find(`.${target}`, baseElement)));
+        return;
+    }
+    go(data, template, $el, $appendTo(baseElement));
+}
 
 const showGreeting = pipe(
   $setCss({
