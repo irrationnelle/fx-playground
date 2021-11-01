@@ -40,3 +40,13 @@ test("Task 의 content 를 변경할 수 있다..", () => {
   task.modifyContent(newContent);
   expect(task.content).toMatch(newContent);
 });
+
+test("Task 의 status 를 변경할 수 있다..", () => {
+  const task = new Task(
+    "Listen to the new album of Dream Theater",
+    "inProgress"
+  );
+  const completed = "completed";
+  task.modifyStatus(completed);
+  expect(task.status).toMatch(completed);
+});
