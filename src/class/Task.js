@@ -6,10 +6,18 @@ class Task {
 
     this.content = content;
 
-    if (status !== 'pending' && status !== 'inProgress' && status !== 'completed') {
-      throw new Error('inappropriate status')
+    if (
+      status !== "pending" &&
+      status !== "inProgress" &&
+      status !== "completed"
+    ) {
+      throw new Error("inappropriate status");
     }
     this.status = status;
+  }
+
+  modifyContent(newContent) {
+    this.content = newContent;
   }
 }
 
