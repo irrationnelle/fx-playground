@@ -6,14 +6,19 @@ class Task {
 
     this.content = content;
 
-    if (
-      status !== "pending" &&
-      status !== "inProgress" &&
-      status !== "completed"
-    ) {
+    const isValid = this.validateStatus(status);
+    if (!isValid) {
       throw new Error("inappropriate status");
     }
     this.status = status;
+  }
+
+  validateStatus(status) {
+    return !(
+      status !== "pending" &&
+      status !== "inProgress" &&
+      status !== "completed"
+    );
   }
 
   modifyContent(newContent) {
@@ -21,11 +26,8 @@ class Task {
   }
 
   modifyStatus(newStatus) {
-    if (
-      newStatus !== "pending" &&
-      newStatus !== "inProgress" &&
-      newStatus !== "completed"
-    ) {
+    const isValid = this.validateStatus(newStatus);
+    if (!isValid) {
       throw new Error("inappropriate status");
     }
     this.status = newStatus;
